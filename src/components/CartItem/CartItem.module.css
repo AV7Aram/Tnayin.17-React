@@ -32,26 +32,6 @@
     font-size: 0.9rem;
 }
 
-.quantityControls {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: auto;
-}
-
-.quantityButton {
-    padding: 0.25rem 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: white;
-    cursor: pointer;
-}
-
-.quantity {
-    min-width: 30px;
-    text-align: center;
-}
-
 .itemTotal {
     font-weight: bold;
     color: #6E41E2;
