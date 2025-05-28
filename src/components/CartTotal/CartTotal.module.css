@@ -1,0 +1,18 @@
+.totalContainer {
+    border-top: 2px solid #eee;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+.totalText {
+    font-size: 1.25rem;
+    color: #333;
+    text-align: right;
+    margin: 0;
+}
+
+.totalPrice {
+    color: #6E41E2;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}

@@ -2,10 +2,10 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../Header/Header'
 
-const Layout = () => {
+const Layout = ({ cartItems }) => {
     return (
         <div>
-            <Header />
+            <Header cartItems={cartItems} />
             <Outlet />
         </div>
     )

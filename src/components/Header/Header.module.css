@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -24,7 +24,8 @@
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--accent-color);
-    a{
+
+    a {
         text-decoration: none;
         color: inherit;
     }
@@ -49,9 +50,27 @@
     color: var(--accent-color);
 }
 
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        gap: 1rem;
-    }
+.cartLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cartIcon {
+    font-size: 1.5rem;
+}
+
+.cartCount {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4d4f;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
 }

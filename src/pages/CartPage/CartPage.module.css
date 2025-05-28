@@ -84,13 +84,30 @@
     margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-    .item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1rem;
+    background: #6E41E2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: opacity 0.2s;
+}
 
-    .item img {
-        width: 80px;
-    }
+.backButton:hover {
+    opacity: 0.9;
+}
+
+.arrowIcon {
+    font-size: 1rem;
+}
+
+.itemsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }

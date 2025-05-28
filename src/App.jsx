@@ -35,7 +35,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout cartItems={cartItems} />}>
         <Route index element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/product/:id" element={<ProductDetailPage addToCart={addToCart} />} />
