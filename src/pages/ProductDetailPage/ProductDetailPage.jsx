@@ -12,20 +12,24 @@ const ProductDetailPage = ({ addToCart }) => {
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-                if (!response.ok) throw new Error('Product not found');
-                const data = await response.json();
-                setProduct(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+        setLoading(true);
+        setError(null);
 
-        fetchProduct();
+        fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Product not found');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setProduct(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                setError(error.message);
+                setLoading(false);
+            });
     }, [id]);
 
     if (loading) {
