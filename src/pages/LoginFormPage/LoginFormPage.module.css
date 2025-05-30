@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ******************************** */
+
+body {
+    color: #1c1e21;
+    direction: ltr;
+    line-height: 1.34;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #f2f4f7;
+}
+
+.fbContainer {
+    margin: 0 auto;
+    padding: 20px 0;
+    max-width: 400px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.fbLeft {
+    flex: 2;
+    vertical-align: top;
+    display: inline-block;
+
+    .fbContent {
+        height: 456px;
+        width: 396px;
+
+        .fbForm {
+            padding-bottom: 24px;
+            padding-top: 10px;
+            text-align: center;
+            align-items: center;
+            background-color: #fff;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, .1), 0px 8px 16px rgba(0, 0, 0, .1);
+            box-sizing: border-box;
+            margin: 40px 0 0;
+            padding: 20px 0 28px;
+            width: 396px;
+
+            .fbInput {
+                font-size: 17px;
+                width: 364px;
+                display: inline-block;
+                margin: auto;
+                padding: 6px 0;
+
+                .fbInputField {
+                    border-radius: 6px;
+                    font-size: 17px;
+                    padding: 14px 16px;
+                    width: 330px;
+                    border: 1px solid #dddfe2;
+                    line-height: 16px;
+                    vertical-align: middle;
+                }
+
+                .fbInputField:focus {
+                    border-color: #0866ff;
+                    box-shadow: 0 0 0 2px #e7f3ff;
+                    outline: none;
+                }
+            }
+
+        }
+
+        .fbMsg {
+            border-top: none;
+            color: #1c1e21;
+            font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding-top: 0;
+            margin-top: 28px;
+            text-align: center;
+
+            a {
+                font-family: SFProText-Semibold, Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                color: #1c1e21;
+            }
+        }
+    }
+}
+
+.fbButton {
+
+    /* padding-top: 6px; */
+    a {
+        border: none;
+        border-radius: 6px;
+        font-size: 17px;
+        line-height: 48px;
+        padding: 0 16px;
+        background-color: #42b72a;
+        color: #fff;
+        display: inline-block;
+    }
+
+    button {
+        border: none;
+    }
+
+}
+
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.errorBorder {
+    border: 1px solid red;
+}
+
+.successMsg {
+    color: green;
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}

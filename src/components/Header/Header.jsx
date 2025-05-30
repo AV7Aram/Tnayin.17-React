@@ -1,4 +1,3 @@
-// Header.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -12,7 +11,7 @@ const Header = ({ cartItems }) => {
             </div>
             <nav className={styles.nav}>
                 <Link to="/products">Products</Link>
-                <span>Log In</span>
+                <Link to="/login">Log In</Link>
                 <span>Support</span>
                 <span>Shop</span>
                 <Link to="/cart" className={styles.cartLink}>

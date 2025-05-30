@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaTrash } from 'react-icons/fa';
 import styles from './CartPage.module.css';
 import CartItem from '../../components/CartItem/CartItem';
 import CartTotal from '../../components/CartTotal/CartTotal';
 
-const CartPage = ({ cartItems, removeFromCart, updateQuantity }) => {
+const CartPage = ({ cartItems, removeFromCart, updateQuantity, clearCart  }) => {
     const navigate = useNavigate();
 
     return (
@@ -17,6 +17,16 @@ const CartPage = ({ cartItems, removeFromCart, updateQuantity }) => {
                 <FaArrowLeft className={styles.arrowIcon} />
                 Go Back
             </button>
+
+            {cartItems.length > 0 && (
+                <button
+                    className={styles.clearButton}
+                    onClick={clearCart}
+                >
+                    <FaTrash className={styles.trashIcon} />
+                    Delete All
+                </button>
+            )}
 
             <h1 className={styles.title}>Basket</h1>
 

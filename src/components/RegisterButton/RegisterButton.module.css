@@ -1,0 +1,45 @@
+.fbButton {
+    padding-top: 6px;
+
+    .fbSubmit {
+        text-align: center;
+        background-color: #0866ff;
+        border: none;
+        border-radius: 6px;
+        font-size: 20px;
+        line-height: 48px;
+        padding: 0 16px;
+        width: 332px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    a {
+        border: none;
+        border-radius: 6px;
+        font-size: 17px;
+        line-height: 48px;
+        padding: 0 16px;
+        background-color: #42b72a;
+        color: #fff;
+        display: inline-block;
+    }
+}
+
+.fbForgot {
+    margin-top: 16px;
+
+    a {
+        color: #0866ff;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+.fbBorder {
+    align-items: center;
+    border-bottom: 1px solid #dadde1;
+    display: flex;
+    margin: 20px 16px;
+    text-align: center;
+}

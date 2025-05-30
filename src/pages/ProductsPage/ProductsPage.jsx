@@ -25,13 +25,6 @@ const ProductsPage = () => {
             });
     }, []);
 
-    if (loading) {
-        return <div className={styles.container}>Loading products...</div>;
-    }
-    if (error) {
-        return <div className={styles.container}>Error: {error}</div>;
-    }
-
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Products</h1>

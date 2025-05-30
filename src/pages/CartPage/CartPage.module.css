@@ -111,3 +111,30 @@
     flex-direction: column;
     gap: 1rem;
 }
+
+.headerControls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.clearButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1rem;
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.clearButton:hover {
+    opacity: 0.9;
+}
+
+.clearButton .trashIcon {
+    font-size: 1rem;
+}

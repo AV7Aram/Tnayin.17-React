@@ -1,0 +1,110 @@
+.modal-backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    width: 400px;
+    height: 100%;
+    border-radius: 8px;
+    position: relative;
+}
+
+.fb_Info {
+    padding-top: 5px;
+}
+
+.fb_Container {
+    margin: 0 auto 30px auto;
+    padding: 0 20px 0 0;
+    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, .1), 0px 8px 16px rgba(0, 0, 0, .1); */
+    /* width: 430px; */
+}
+
+.fb_Account {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+    box-sizing: border-box;
+    padding: 10px 16px;
+    /* width: 432px; */
+}
+
+.create {
+    font-size: 25px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #333;
+}
+
+.easy {
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    color: #606770;
+}
+
+.register-form .form-group {
+    margin-bottom: 12px;
+    color: red;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    
+}
+
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit {
+    text-align: center;
+}
+
+.submit {
+    background-color: #00a400;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    height: 36px;
+    padding: 0 32px;
+    min-width: 194px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    a{
+        color: white;
+    }
+}
+
+
+.cancel-btn {
+    background-color: #ccc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 3px;
+}
