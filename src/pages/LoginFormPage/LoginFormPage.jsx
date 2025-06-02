@@ -5,7 +5,7 @@ import { loginSchema } from "../../schema/schema";
 
 import style from "./LoginFormPage.module.css";
 
-export const LoginFormPage = ({ onLogin, onOpenRegister, loginError, loginSuccess, users }) => {
+export const LoginFormPage = ({ onLogin, loginError, loginSuccess }) => {
 
     const navigate = useNavigate()
 
@@ -15,13 +15,10 @@ export const LoginFormPage = ({ onLogin, onOpenRegister, loginError, loginSucces
                 initialValues={{ email: "", password: "" }}
                 validationSchema={loginSchema}
                 onSubmit={(values, { setSubmitting }) => {
-                    const foundUser = users.find(
-                        (user) => user.email === values.email && user.password === values.password
-                    );
-                    onLogin(values.email, values.password);
+                    const result = onLogin(values.email, values.password);
                     setSubmitting(false);
-                    if (foundUser) {
-                        navigate(`/userinfo/${foundUser.id}`, { state: foundUser });
+                    if (result?.success) {
+                        navigate('/');
                     }
                 }}
             >
@@ -47,10 +44,10 @@ export const LoginFormPage = ({ onLogin, onOpenRegister, loginError, loginSucces
                                                 className={`${style.fbInputField} ${errors.password && touched.password ? style.errorBorder : ""}`}
                                             />
                                             <ErrorMessage name="password" component="div" className="error" />
-                                        </div>
+                                        </div>                        
                                         <RegisterButton />
                                         <div className={style.fbButton}>
-                                            <button type="button" onClick={onOpenRegister}>
+                                            <button type="button">
                                                 <NavLink to='/register'>Create a new account</NavLink>
                                             </button>
                                         </div>

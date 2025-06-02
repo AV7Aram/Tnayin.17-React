@@ -61,7 +61,7 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    
+
 }
 
 .register-form button {
@@ -89,7 +89,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
     cursor: pointer;
-    a{
+
+    a {
         color: white;
     }
 }
@@ -107,4 +108,25 @@
     color: red;
     font-size: 12px;
     margin-top: 3px;
+}
+
+.already {
+    color: #1877f2;
+    font-family: SFProText-Semibold, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.loginLink {
+    color: #333;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.loginLink:hover {
+    color: #6E41E2;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { registerSchema } from "../../schema/schema";
 import { NavLink, useNavigate } from "react-router-dom";
+import { registerSchema } from "../../schema/schema";
 import "./RegisterPage.css";
 
 export const RegisterPage = ({ onRegister }) => {
@@ -27,18 +27,24 @@ export const RegisterPage = ({ onRegister }) => {
                                 confirmPassword: "",
                             }}
                             validationSchema={registerSchema}
-                            onSubmit={(values) => {
-                                onRegister({
-                                    id: Date.now(),
+                            onSubmit={(values, { setSubmitting }) => {
+                                const result = onRegister({
                                     firstName: values.firstName,
                                     lastName: values.lastName,
                                     email: values.email,
                                     password: values.password
                                 });
-                                navigate('/login');
+                                
+                                setSubmitting(false);
+
+                                if (result.success) {
+                                    navigate('/login');
+                                } else {
+                                    alert(result.error);
+                                }
                             }}
                         >
-                            {() => (
+                            {({ isSubmitting }) => (
                                 <Form className="register-form">
                                     <div className="form-group">
                                         <Field name="firstName" placeholder="First name" />
@@ -65,16 +71,24 @@ export const RegisterPage = ({ onRegister }) => {
                                         <ErrorMessage name="confirmPassword" className="error" />
                                     </div>
 
-                                    <button type="submit" className="submit">
-                                        Sign Up
+                                    <button
+                                        type="submit"
+                                        className='submit'
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting ? 'Processing...' : 'Sign Up'}
                                     </button>
+
+                                    <div className="already">
+                                        Already have an account? <NavLink to="/login" className='loginLink'>Log In</NavLink>
+                                    </div>
                                 </Form>
                             )}
                         </Formik>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

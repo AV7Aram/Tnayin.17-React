@@ -3,37 +3,14 @@ import { Routes, Route } from 'react-router-dom';
 import { HomePage, CartPage, ProductDetailPage, ProductsPage, LoginFormPage, RegisterPage, UserInfoPage } from './pages';
 
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { useAuth } from './hooks/useAuth';
 
 import Layout from './components/Layout/Layout';
 
 function App() {
   const [cartItems, setCartItems] = useLocalStorage('cart', []);
-
-  const [users, setUsers] = useState([
-    { id: 1, firstName: 'Avet', lastName: '', email: 'avet@gmail.com', password: '1234' },
-    { id: 2, firstName: 'Anna', lastName: '', email: 'anna@gmail.com', password: '1234' }
-  ]);
-  const [showModal, setShowModal] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const { user, users, login, register, logout } = useAuth();
   const [loginError, setLoginError] = useState("");
-
-  const handleRegister = (newUser) => {
-    setUsers((prev) => [...prev, newUser]);
-    setShowModal(false);
-  };
-
-  const handleLogin = (email, password) => {
-    const foundUser = users.find(
-      (u) => u.email === email && u.password === password
-    );
-    if (foundUser) {
-      setLoggedInUser(foundUser);
-      setLoginError("");
-    } else {
-      setLoggedInUser(null);
-      setLoginError("Incorrect username or password. ❌");
-    }
-  };
 
   const clearCart = () => {
     setCartItems([]);
@@ -67,14 +44,14 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout cartItems={cartItems} clearCart={clearCart} />}>
+      <Route path="/" element={<Layout cartItems={cartItems} clearCart={clearCart} onLogout={logout} user={user} />}>
         <Route index element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/product/:id" element={<ProductDetailPage addToCart={addToCart} />} />
-        <Route path="/cart" element={<CartPage cartItems={cartItems} removeFromCart={removeFromCart} updateQuantity={updateQuantity} clearCart={clearCart} f />} />
-        <Route path='/login' element={<LoginFormPage onLogin={handleLogin} onOpenRegister={() => setShowModal(true)} loginError={loginError} loginSuccess={loggedInUser} users={users} />} />
-        <Route path="/userinfo/:id" element={<UserInfoPage />} />
-        <Route path='/register' element={<RegisterPage onRegister={handleRegister} />} />
+        <Route path="/cart" element={<CartPage cartItems={cartItems} removeFromCart={removeFromCart} updateQuantity={updateQuantity} clearCart={clearCart}  />} />
+        <Route path='/login' element={<LoginFormPage onLogin={login} loginError={loginError} loginSuccess={!!user} users={users} />} />
+        <Route path="/user/:id" element={<UserInfoPage />} />
+        <Route path='/register' element={<RegisterPage onRegister={register} />} />
       </Route>
     </Routes>
   );

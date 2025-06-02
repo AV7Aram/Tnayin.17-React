@@ -154,3 +154,14 @@ body {
     background-color: #d4edda;
     border: 1px solid #c3e6cb;
 }
+
+.authError {
+  color: #ff4d4f;
+  font-size: 14px;
+  text-align: center;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 4px;
+}

@@ -1,9 +1,8 @@
-import React from 'react';
+import { FaSignOutAlt, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
 import styles from './Header.module.css';
 
-const Header = ({ cartItems }) => {
+const Header = ({ user, cartItems, onLogout }) => {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
@@ -11,7 +10,20 @@ const Header = ({ cartItems }) => {
             </div>
             <nav className={styles.nav}>
                 <Link to="/products">Products</Link>
-                <Link to="/login">Log In</Link>
+                {user ? (
+                    <>
+                        <span className={styles.welcomeMsg}>Welcome, {user.firstName}</span>
+                        <Link to={`/user/${user.id}`} className={styles.profileLink}>
+                            Profile
+                        </Link>
+                        <button onClick={onLogout} className={styles.logoutButton}>
+                            <FaSignOutAlt className={styles.logoutIcon} />
+                            Logout
+                        </button>
+                    </>
+                ) : (
+                    <Link to="/login" className={styles.loginLink}>Login</Link>
+                )}
                 <span>Support</span>
                 <span>Shop</span>
                 <Link to="/cart" className={styles.cartLink}>
