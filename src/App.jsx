@@ -2,18 +2,12 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { HomePage, CartPage, ProductDetailPage, ProductsPage, LoginFormPage, RegisterPage, UserInfoPage } from './pages';
 
+import { useLocalStorage } from './hooks/useLocalStorage';
+
 import Layout from './components/Layout/Layout';
 
 function App() {
-  const [cartItems, setCartItems] = useState(() => {
-    const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-  }, [cartItems]);
-
+  const [cartItems, setCartItems] = useLocalStorage('cart', []);
 
   const [users, setUsers] = useState([
     { id: 1, firstName: 'Avet', lastName: '', email: 'avet@gmail.com', password: '1234' },
@@ -44,7 +38,6 @@ function App() {
   const clearCart = () => {
     setCartItems([]);
   };
-
 
   const addToCart = (product, quantity) => {
     setCartItems(prevItems => {
