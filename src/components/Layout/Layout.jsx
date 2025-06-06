@@ -1,12 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import  Header  from '../../components/Header/Header'
+import Header from '../../components/Header/Header'
 
-const Layout = ({ cartItems, clearCart, user, onLogout }) => {
+const Layout = () => {
     return (
         <div>
-            <Header cartItems={cartItems} user={user} onLogout={onLogout} />
-            <Outlet context={{ cartItems, clearCart }} />
+            <Header />
+            <Outlet />
         </div>
     )
 }

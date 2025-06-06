@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MyContext } from '../../context/MyContext';
 import { FaTrash } from 'react-icons/fa';
 import styles from './CartItem.module.css';
 import CartControls from '../CartControls/CartControls';
 
-const CartItem = ({ item, removeFromCart, updateQuantity }) => {
+const CartItem = ({ item }) => {
+    const { removeFromCart, updateQuantity } = useContext(MyContext);
     return (
         <div className={styles.item}>
             <img
@@ -15,7 +17,7 @@ const CartItem = ({ item, removeFromCart, updateQuantity }) => {
                 <h3 className={styles.productTitle}>{item.title}</h3>
                 <p className={styles.price}>Price: ${item.price}</p>
 
-            <CartControls updateQuantity={updateQuantity} item={item}/>
+                <CartControls updateQuantity={updateQuantity} item={item} />
 
                 <p className={styles.itemTotal}>
                     Total: ${(item.price * item.quantity).toFixed(2)}

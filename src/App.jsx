@@ -5,6 +5,8 @@ import { HomePage, CartPage, ProductDetailPage, ProductsPage, LoginFormPage, Reg
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { useAuth } from './hooks/useAuth';
 
+import { MyContext } from './context/MyContext';
+
 import Layout from './components/Layout/Layout';
 
 function App() {
@@ -42,18 +44,36 @@ function App() {
     setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
   };
 
+  const contextValue = {
+    cartItems,
+    setCartItems,
+    user,
+    users,
+    login,
+    register,
+    logout,
+    loginError,
+    setLoginError,
+    clearCart,
+    addToCart,
+    updateQuantity,
+    removeFromCart,
+  };
+
   return (
-    <Routes>
-      <Route path="/" element={<Layout cartItems={cartItems} clearCart={clearCart} onLogout={logout} user={user} />}>
-        <Route index element={<HomePage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/product/:id" element={<ProductDetailPage addToCart={addToCart} />} />
-        <Route path="/cart" element={<CartPage cartItems={cartItems} removeFromCart={removeFromCart} updateQuantity={updateQuantity} clearCart={clearCart}  />} />
-        <Route path='/login' element={<LoginFormPage onLogin={login} loginError={loginError} loginSuccess={!!user} users={users} />} />
-        <Route path="/user/:id" element={<UserInfoPage />} />
-        <Route path='/register' element={<RegisterPage onRegister={register} />} />
-      </Route>
-    </Routes>
+    <MyContext.Provider value={contextValue}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path='/login' element={<LoginFormPage />} />
+          <Route path="/user/:id" element={<UserInfoPage />} />
+          <Route path='/register' element={<RegisterPage />} />
+        </Route>
+      </Routes>
+    </MyContext.Provider>
   );
 }
 

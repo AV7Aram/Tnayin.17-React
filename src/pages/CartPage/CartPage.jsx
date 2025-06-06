@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MyContext } from "../../context/MyContext";
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaTrash } from 'react-icons/fa';
 import styles from './CartPage.module.css';
 import CartItem from '../../components/CartItem/CartItem';
 import CartTotal from '../../components/CartTotal/CartTotal';
 
-const CartPage = ({ cartItems, removeFromCart, updateQuantity, clearCart  }) => {
+const CartPage = () => {
+    const { cartItems, removeFromCart, updateQuantity, clearCart } = useContext(MyContext);
     const navigate = useNavigate();
 
     return (

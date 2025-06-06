@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { MyContext } from '../../context/MyContext';
 import { useParams, useNavigate } from 'react-router-dom';
 import QuantitySelector from '../../components/Product/QuantitySelector';
 import styles from './ProductDetailPage.module.css';
 
-const ProductDetailPage = ({ addToCart }) => {
+const ProductDetailPage = () => {
+    const { addToCart } = useContext(MyContext)
+
     const { id } = useParams();
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);

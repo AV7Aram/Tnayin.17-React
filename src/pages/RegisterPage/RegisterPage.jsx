@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyContext } from "../../context/MyContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { NavLink, useNavigate } from "react-router-dom";
 import { registerSchema } from "../../schema/schema";
 import "./RegisterPage.css";
 
-export const RegisterPage = ({ onRegister }) => {
+export const RegisterPage = () => {
+    const { register } = useContext(MyContext)
 
     const navigate = useNavigate();
 
@@ -28,13 +30,13 @@ export const RegisterPage = ({ onRegister }) => {
                             }}
                             validationSchema={registerSchema}
                             onSubmit={(values, { setSubmitting }) => {
-                                const result = onRegister({
+                                const result = register({
                                     firstName: values.firstName,
                                     lastName: values.lastName,
                                     email: values.email,
                                     password: values.password
                                 });
-                                
+
                                 setSubmitting(false);
 
                                 if (result.success) {

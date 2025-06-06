@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { MyContext } from "../../context/MyContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { RegisterButton } from '../../components/RegisterButton/RegisterButton'
 import { NavLink, useNavigate } from "react-router-dom";
@@ -5,7 +7,8 @@ import { loginSchema } from "../../schema/schema";
 
 import style from "./LoginFormPage.module.css";
 
-export const LoginFormPage = ({ onLogin, loginError, loginSuccess }) => {
+export const LoginFormPage = () => {
+    const { login, loginError, loginSuccess } = useContext(MyContext);
 
     const navigate = useNavigate()
 
@@ -15,7 +18,7 @@ export const LoginFormPage = ({ onLogin, loginError, loginSuccess }) => {
                 initialValues={{ email: "", password: "" }}
                 validationSchema={loginSchema}
                 onSubmit={(values, { setSubmitting }) => {
-                    const result = onLogin(values.email, values.password);
+                    const result = login(values.email, values.password);
                     setSubmitting(false);
                     if (result?.success) {
                         navigate('/');
@@ -44,7 +47,7 @@ export const LoginFormPage = ({ onLogin, loginError, loginSuccess }) => {
                                                 className={`${style.fbInputField} ${errors.password && touched.password ? style.errorBorder : ""}`}
                                             />
                                             <ErrorMessage name="password" component="div" className="error" />
-                                        </div>                        
+                                        </div>
                                         <RegisterButton />
                                         <div className={style.fbButton}>
                                             <button type="button">

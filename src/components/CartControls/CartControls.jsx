@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MyContext } from '../../context/MyContext'
 import styles from './CartControls.module.css'
 
-const CartControls = ({ updateQuantity, item }) => {
+const CartControls = ({ item, updateQuantity }) => {
     return (
         <div className={styles.quantityControls}>
             <button

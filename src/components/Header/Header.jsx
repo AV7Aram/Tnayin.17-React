@@ -1,8 +1,12 @@
 import { FaSignOutAlt, FaShoppingCart } from 'react-icons/fa';
+import { useContext } from 'react';
+import { MyContext } from '../../context/MyContext';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
-const Header = ({ user, cartItems, onLogout }) => {
+const Header = () => {
+    const { user, cartItems, logout } = useContext(MyContext)
+
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
@@ -16,7 +20,7 @@ const Header = ({ user, cartItems, onLogout }) => {
                         <Link to={`/user/${user.id}`} className={styles.profileLink}>
                             Profile
                         </Link>
-                        <button onClick={onLogout} className={styles.logoutButton}>
+                        <button onClick={logout} className={styles.logoutButton}>
                             <FaSignOutAlt className={styles.logoutIcon} />
                             Logout
                         </button>
