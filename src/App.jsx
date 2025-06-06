@@ -44,24 +44,22 @@ function App() {
     setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
   };
 
-  const contextValue = {
-    cartItems,
-    setCartItems,
-    user,
-    users,
-    login,
-    register,
-    logout,
-    loginError,
-    setLoginError,
-    clearCart,
-    addToCart,
-    updateQuantity,
-    removeFromCart,
-  };
-
   return (
-    <MyContext.Provider value={contextValue}>
+    <MyContext.Provider value={{
+      cartItems,
+      setCartItems,
+      user,
+      users,
+      login,
+      register,
+      logout,
+      loginError,
+      setLoginError,
+      clearCart,
+      addToCart,
+      updateQuantity,
+      removeFromCart,
+    }}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
